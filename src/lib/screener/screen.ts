@@ -1,4 +1,4 @@
-import { ReplayMissError, type ProviderCall, type ScreenRequest, type VerdictProvider } from "./provider";
+import { isReplayMiss, type ProviderCall, type ScreenRequest, type VerdictProvider } from "./provider";
 import { keywordVerdict } from "./rules";
 import { scrub } from "../scrub";
 import { verdictSchema, type Verdict } from "./verdict";
@@ -50,7 +50,7 @@ export async function screenWithProvider(
   try {
     call = await provider.call(req, signal);
   } catch (err) {
-    if (err instanceof ReplayMissError) return rulesOutcome(req, "Offline rules (no recording)");
+    if (isReplayMiss(err)) return rulesOutcome(req, "Offline rules (no recording)");
     return {
       screener: label,
       verdict: null,

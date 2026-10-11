@@ -1,6 +1,7 @@
 /** Errors worth another try: overload, rate limits, 5xx, dropped connections. */
 export function isRetryable(err: unknown): boolean {
-  if (err instanceof RetryableError) return true;
+  // By name, not instanceof: a bundled server chunk can hold another copy of the class.
+  if (err instanceof Error && err.name === "RetryableError") return true;
   const msg = err instanceof Error ? err.message : String(err);
   return /overloaded|rate[ _-]?limit|too many requests|\b(429|5\d\d)\b|ECONNRESET|ETIMEDOUT|socket hang up|temporarily unavailable/i.test(
     msg,

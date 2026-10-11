@@ -85,3 +85,31 @@ test("the fan deletes a live message and it leaves every screen at once", async 
   await expect(audit.getByText("deleted by fan").first()).toBeVisible();
   await expect(audit).not.toContainText("Paper Moons");
 });
+
+test("in replay mode a text with no recording falls back to the labelled keyword rules", async ({ page, context }) => {
+  const errors = watchErrors(page);
+  await page.goto("/live");
+  await expect(page.getByTestId("mode-badge")).toHaveText("Replay mode");
+  // Typed fresh, so fixtures/replay.json has no recording for it.
+  await send(page, "Noor", "Paper Moons", "First time hearing the bridge on Paper Moons live, chills all over");
+  const pill = page.getByTestId("status-card").first().getByTestId("status-pill");
+  await expect(pill).toHaveText("Live");
+  await expect(page.getByTestId("venue-screen").getByText("chills all over").first()).toBeVisible();
+
+  const consolePage = await context.newPage();
+  await consolePage.goto("/console");
+  const card = consolePage.getByTestId("col-live").getByTestId("queue-card").filter({ hasText: "chills all over" });
+  await expect(card).toContainText("Offline rules (no recording)");
+  await card.click();
+  const trace = consolePage.getByTestId("trace");
+  await expect(trace).toContainText("Offline rules (no recording)");
+  await expect(consolePage.getByTestId("policy-result")).not.toHaveText("Held for a person");
+  await expect(trace).not.toContainText("No recorded response for this text");
+  await consolePage.keyboard.press("Escape");
+
+  await consolePage.getByRole("tab", { name: "Privacy" }).click();
+  const audit = consolePage.getByTestId("audit");
+  await expect(audit.getByText("auto-published").first()).toBeVisible();
+  await expect(audit).not.toContainText("screening failed");
+  expect(errors).toEqual([]);
+});

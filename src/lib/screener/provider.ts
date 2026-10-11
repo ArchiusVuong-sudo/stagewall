@@ -34,6 +34,14 @@ export class ReplayMissError extends Error {
   }
 }
 
+/**
+ * Checks by name, not instanceof: Next bundles this module into several server
+ * chunks, so the provider cached on globalThis can throw another copy of the class.
+ */
+export function isReplayMiss(err: unknown): boolean {
+  return err instanceof Error && err.name === "ReplayMissError";
+}
+
 /** Stable key for a request, used to store and find recorded responses. */
 export function requestKey(req: Pick<ScreenRequest, "name" | "track" | "message">): string {
   const canonical = JSON.stringify({

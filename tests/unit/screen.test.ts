@@ -49,6 +49,19 @@ describe("screenWithProvider", () => {
     expect(r.verdict?.decision).toBe("approve");
   });
 
+  it("falls back too when the miss comes from another bundled copy of the error class", async () => {
+    // Next puts provider.ts in several server chunks, so instanceof can fail.
+    class OtherCopy extends Error {
+      constructor() {
+        super("No recorded response for this text");
+        this.name = "ReplayMissError";
+      }
+    }
+    const r = await screenWithProvider(req, provider(async () => Promise.reject(new OtherCopy()), "replay"));
+    expect(r.screener).toBe("Offline rules (no recording)");
+    expect(r.error).toBeNull();
+  });
+
   it("uses the rules when there is no provider (offline mode)", async () => {
     const r = await screenWithProvider({ ...req, message: "selling tix" }, null);
     expect(r.screener).toBe("Offline rules");
