@@ -123,7 +123,9 @@ export function EvalsTab() {
                     <td className={`px-4 py-3 text-right tabular-nums ${r.falseApprovals ? "font-semibold text-rose-600" : "text-zinc-500"}`}>{r.falseApprovals}</td>
                     <td className={`px-4 py-3 text-right tabular-nums ${r.falseHolds ? "font-semibold text-amber-700" : "text-zinc-500"}`}>{r.falseHolds}</td>
                     <td className="px-4 py-3 text-right tabular-nums text-zinc-500">{(r.durationMs / 1000).toFixed(1)} s</td>
-                    <td className="px-4 py-3 text-right tabular-nums text-zinc-500">${r.costUsd.toFixed(3)}</td>
+                    <td className="px-4 py-3 text-right tabular-nums text-zinc-500" title={r.screener.includes("replay") ? `Recorded run cost $${r.costUsd.toFixed(3)}` : undefined}>
+                      {r.screener.includes("replay") ? "$0 (replay)" : `$${r.costUsd.toFixed(3)}`}
+                    </td>
                   </tr>
                 ))}
               </tbody>

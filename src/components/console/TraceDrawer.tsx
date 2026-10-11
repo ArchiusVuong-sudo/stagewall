@@ -86,9 +86,9 @@ export function TraceDrawer({ id, onClose }: { id: string; onClose: () => void }
               <dl className="grid grid-cols-2 gap-2">
                 <Stat label="Screener" value={t.screener} />
                 <Stat label="Model" value={t.model ?? "none (rules)"} />
-                <Stat label="Latency" value={`${(t.latencyMs / 1000).toFixed(2)} s`} />
+                <Stat label={t.screener.includes("replay") ? "Latency when recorded" : "Latency"} value={`${(t.latencyMs / 1000).toFixed(2)} s`} />
                 <Stat label="Tokens in / out" value={`${t.inputTokens.toLocaleString()} / ${t.outputTokens.toLocaleString()}`} />
-                <Stat label="Cost (SDK estimate)" value={`$${t.costUsd.toFixed(4)}`} />
+                <Stat label={t.screener.includes("replay") ? "Cost when recorded" : "Cost (SDK estimate)"} value={`$${t.costUsd.toFixed(4)}`} />
                 <Stat label="When" value={new Date(t.createdAt).toLocaleTimeString("en-GB")} />
               </dl>
             </Section>

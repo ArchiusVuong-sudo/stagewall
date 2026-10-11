@@ -75,7 +75,8 @@ CREATE TABLE IF NOT EXISTS eval_runs (
 `;
 
 export function dataDir(): string {
-  return path.resolve(process.env.DATA_DIR ?? path.join(process.cwd(), "data"));
+  // Runtime path, not a build input: keep the bundler from tracing the whole project.
+  return path.resolve(/*turbopackIgnore: true*/ process.env.DATA_DIR ?? path.join(process.cwd(), "data"));
 }
 
 export function dbPath(): string {

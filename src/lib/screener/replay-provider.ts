@@ -29,7 +29,7 @@ export function fixturePath(): string {
 
 export function loadFixtures(file = fixturePath()): FixtureFile {
   try {
-    return fixtureFileSchema.parse(JSON.parse(readFileSync(file, "utf8")));
+    return fixtureFileSchema.parse(JSON.parse(readFileSync(/*turbopackIgnore: true*/ file, "utf8")));
   } catch (err) {
     if ((err as NodeJS.ErrnoException).code === "ENOENT") return { note: "", entries: {} };
     throw err;

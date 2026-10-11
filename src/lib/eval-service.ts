@@ -60,12 +60,12 @@ export function importCommittedResults(db: DB): number {
   let n = 0;
   let files: string[] = [];
   try {
-    files = readdirSync(resultsDir()).filter((f) => f.endsWith(".json"));
+    files = readdirSync(/*turbopackIgnore: true*/ resultsDir()).filter((f) => f.endsWith(".json"));
   } catch {
     return 0;
   }
   for (const f of files) {
-    const run = JSON.parse(readFileSync(path.join(resultsDir(), f), "utf8")) as EvalRun;
+    const run = JSON.parse(readFileSync(/*turbopackIgnore: true*/ path.join(resultsDir(), f), "utf8")) as EvalRun;
     insertEvalRun(db, run);
     n++;
   }

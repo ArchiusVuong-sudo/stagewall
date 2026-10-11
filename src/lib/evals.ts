@@ -33,7 +33,7 @@ export function casesPath(): string {
 }
 
 export function loadCases(file = casesPath()): EvalCase[] {
-  return readFileSync(file, "utf8")
+  return readFileSync(/*turbopackIgnore: true*/ file, "utf8")
     .split("\n")
     .filter((l) => l.trim())
     .map((l, i) => {
