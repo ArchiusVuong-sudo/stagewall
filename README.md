@@ -61,7 +61,7 @@ Next.js App Router (Node runtime route handlers), React, Tailwind CSS, Motion, z
 | AI screener | 36/36 | 0 | 0 | 50.1 s | $0.20 |
 | Keyword filter | 17/36 | 16 | 3 | under 0.1 s | $0 |
 
-The keyword filter held three of the six idiom traps and let through all 4 harassment cases, both hate cases, both sexual requests, both spoilers, 3 of 4 resale offers, one of two injections and both personal-detail cases. The AI result moves a little between runs: two other live runs the same day scored 35/36, and both times the one miss was a false hold on "Northbound is a killer opener", where the model wondered if "opener" revealed the song order. Results are saved in `evals/results/` with model and date, and a unit test replays the recorded run and checks it reproduces those numbers.
+The keyword filter held three of the six idiom traps and let through all 4 harassment cases, both hate cases, both sexual requests, both spoilers, 3 of 4 resale offers, one of two injections and both personal-detail cases. The AI result moves a little between runs: another live run the same day scored 35/36; its one miss was a false hold on "Northbound is a killer opener", where the model wondered if "opener" revealed the song order. Results are saved in `evals/results/` with model and date, and a unit test replays the recorded run and checks it reproduces those numbers.
 
 **Key decisions and trade-offs.**
 - The AI is used for what keywords cannot judge (meaning, idioms, other languages, manipulation); the cheap, certain work (scrubbing, limits, consent) stays deterministic.
@@ -131,6 +131,6 @@ CI (`.github/workflows/ci.yml`) runs lint, typecheck, unit tests, a production b
 - All data is synthetic: the artist, album, show, tracks, fan names and messages are invented, phone numbers use ranges reserved for fiction and emails use example.com. Every screen carries a "Synthetic demo data" badge and every row has `synthetic = 1`.
 - The producer console has no sign-in in this demo; a production version would put it behind single sign-on with roles and keep the audit log append-only.
 - Replay mode answers only the recorded texts; anything new falls back to the labelled keyword rules.
-- Demo takes are recorded in replay mode so every take shows the same verdicts. Live verdicts move a little between runs; a message near the bar can land on either side of it.
+- The demo video was recorded in live mode against the Agent SDK (`claude-sonnet-5-5`). Replay mode plays back responses recorded from live runs, so CI and readers without a login see the same verdicts. Live verdicts move a little between runs; a message near the bar can land on either side of it.
 - Without `TRUST_PROXY=1` the app ignores proxy headers, so a client cannot reset its limit by sending a new `X-Forwarded-For`. All devices then share one limit key, which suits a single-machine demo; behind a real proxy, turn it on.
 - A production version would also add a durable queue in front of screening, per-show tenancy, a moderation SLA timer on held messages, and image or voice messages with the same scrub-first pipeline.
