@@ -1,0 +1,38 @@
+# dependencies
+node_modules/
+.venv/
+
+# env files (the example stays)
+.env
+.env.*
+!.env.example
+
+# local data
+data/
+*.db
+*.db-*
+*.sqlite*
+
+# build output
+.next/
+dist/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# test output
+test-results/
+playwright-report/
+coverage/
+blob-report/
+
+# media
+*.mp4
+*.gif
+*.webm
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
