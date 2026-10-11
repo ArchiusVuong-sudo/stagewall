@@ -61,7 +61,13 @@ export function submitLimiter(): RateLimiter {
   return g.__stagewallLimiter;
 }
 
-export function clientIp(headers: Headers): string {
+/**
+ * Proxy headers are set by the client unless a trusted proxy overwrites them,
+ * so they count only when TRUST_PROXY=1. Otherwise every request shares the
+ * "local" key: right for the single-machine demo, and not bypassable.
+ */
+export function clientIp(headers: Headers, trustProxy = process.env.TRUST_PROXY === "1"): string {
+  if (!trustProxy) return "local";
   const fwd = headers.get("x-forwarded-for")?.split(",")[0]?.trim();
-  return fwd || headers.get("x-real-ip") || "local";
+  return fwd || headers.get("x-real-ip")?.trim() || "local";
 }

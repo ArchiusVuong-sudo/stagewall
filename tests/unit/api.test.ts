@@ -6,6 +6,8 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 const dir = mkdtempSync(path.join(tmpdir(), "stagewall-api-"));
 process.env.DATA_DIR = dir;
 process.env.RATE_LIMIT_MAX = "3";
+// Each test posts from its own address through a trusted proxy header.
+process.env.TRUST_PROXY = "1";
 
 const { POST: submit } = await import("@/app/api/messages/route");
 const manage = await import("@/app/api/manage/[token]/route");

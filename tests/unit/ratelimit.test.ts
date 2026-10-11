@@ -31,8 +31,19 @@ describe("RateLimiter", () => {
     expect(rl.deviceKey("203.0.113.7")).not.toBe(a);
   });
 
-  it("reads the client IP from proxy headers", () => {
-    expect(clientIp(new Headers({ "x-forwarded-for": "203.0.113.7, 10.0.0.1" }))).toBe("203.0.113.7");
-    expect(clientIp(new Headers())).toBe("local");
+  it("reads the client IP from proxy headers only behind a trusted proxy", () => {
+    const fwd = new Headers({ "x-forwarded-for": "203.0.113.7, 10.0.0.1" });
+    expect(clientIp(fwd, true)).toBe("203.0.113.7");
+    expect(clientIp(new Headers({ "x-real-ip": "198.51.100.2" }), true)).toBe("198.51.100.2");
+    expect(clientIp(new Headers(), true)).toBe("local");
+  });
+
+  it("ignores client-set proxy headers by default, so changing them cannot reset the limit", () => {
+    expect(clientIp(new Headers({ "x-forwarded-for": "203.0.113.7" }), false)).toBe("local");
+    expect(clientIp(new Headers({ "x-real-ip": "198.51.100.2" }), false)).toBe("local");
+    const rl = new RateLimiter(3, 60_000);
+    const ips = ["203.0.113.1", "203.0.113.2", "203.0.113.3", "203.0.113.4"];
+    const allowed = ips.map((ip) => rl.check(clientIp(new Headers({ "x-forwarded-for": ip }), false)).allowed);
+    expect(allowed).toEqual([true, true, true, false]);
   });
 });
