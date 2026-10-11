@@ -17,7 +17,7 @@ Full video: https://github.com/ArchiusVuong-sudo/stagewall/releases/download/v0.
 ## Architecture
 
 ```mermaid
-flowchart LR
+flowchart TB
     Phone["Fan phone page"] -->|"POST message"| Api["API route: zod check, honeypot, rate limit"]
     Api --> Scrub["Privacy scrubber"]
     Scrub --> Db[("SQLite (WAL)")]
