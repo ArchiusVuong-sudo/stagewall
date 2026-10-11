@@ -1,5 +1,6 @@
 import { ReplayMissError, type ProviderCall, type ScreenRequest, type VerdictProvider } from "./provider";
 import { keywordVerdict } from "./rules";
+import { scrub } from "../scrub";
 import { verdictSchema, type Verdict } from "./verdict";
 
 export type ScreenerLabel = "AI screener" | "AI screener (replay)" | "Offline rules" | "Offline rules (no recording)";
@@ -65,8 +66,8 @@ export async function screenWithProvider(
   const parsed = verdictSchema.safeParse(call.toolArgs);
   return {
     screener: label,
-    verdict: parsed.success ? parsed.data : null,
-    toolArgs: call.toolArgs,
+    verdict: parsed.success ? scrubVerdict(parsed.data) : null,
+    toolArgs: parsed.success ? scrubVerdict(parsed.data) : call.toolArgs,
     model: call.model,
     latencyMs: call.latencyMs,
     inputTokens: call.inputTokens,
@@ -74,4 +75,12 @@ export async function screenWithProvider(
     costUsd: call.costUsd,
     error: parsed.success ? null : `record_verdict arguments failed the schema: ${parsed.error.issues[0]?.message ?? "invalid"}`,
   };
+}
+
+/**
+ * Model output is untrusted too: a reason can quote a detail back, for example
+ * turning a spelled-out number into digits. Reasons are scrubbed before storage.
+ */
+export function scrubVerdict(v: Verdict): Verdict {
+  return { ...v, reasons: v.reasons.map((r) => scrub(r).text) };
 }

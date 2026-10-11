@@ -18,7 +18,7 @@ export function screenerModel(): string {
  * The child process gets only these variables. Everything else (including
  * CLAUDECODE and CLAUDE_CODE_* from a parent session) stays behind.
  */
-export function childEnv(source: NodeJS.ProcessEnv = process.env): Record<string, string> {
+export function childEnv(source: Record<string, string | undefined> = process.env): Record<string, string> {
   const env: Record<string, string> = {};
   for (const key of ["PATH", "HOME", "USER", "LANG", "TMPDIR"] as const) {
     const v = source[key];

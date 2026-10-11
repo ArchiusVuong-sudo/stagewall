@@ -37,23 +37,22 @@
       "call": {
         "toolArgs": {
           "decision": "approve",
-          "confidence": 0.98,
+          "confidence": 0.97,
           "categories": [
             "fan_love"
           ],
           "reasons": [
-            "Warm message about travelling with her dad to the event; about the night.",
-            "No personal info, spoilers, promotion or harassment."
+            "Warm message about travelling with her dad to the night; no rule issues."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 5342,
-        "inputTokens": 4424,
-        "outputTokens": 281,
-        "costUsd": 0.0070695
+        "latencyMs": 5140,
+        "inputTokens": 4408,
+        "outputTokens": 191,
+        "costUsd": 0.0048979
       },
-      "recordedAt": "2026-10-11T04:08:21.890Z"
+      "recordedAt": "2026-10-11T04:18:48.933Z"
     },
     "0f4f811d7bdae01d4362e1df": {
       "input": {
@@ -69,17 +68,18 @@
             "resale_spam"
           ],
           "reasons": [
-            "Offers to sell VIP passes for the after party, which is ticket resale banned by house rule 2."
+            "Offers to sell VIP after party passes, which is ticket resale banned by house rule 2.",
+            "Asks people to message the seller, so a producer should decide."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 4744,
-        "inputTokens": 4428,
-        "outputTokens": 202,
-        "costUsd": 0.0062781
+        "latencyMs": 4667,
+        "inputTokens": 4444,
+        "outputTokens": 223,
+        "costUsd": 0.0053343
       },
-      "recordedAt": "2026-10-11T04:08:32.411Z"
+      "recordedAt": "2026-10-11T04:18:59.332Z"
     },
     "1923458042546221b5d383a3": {
       "input": {
@@ -90,22 +90,22 @@
       "call": {
         "toolArgs": {
           "decision": "approve",
-          "confidence": 0.97,
+          "confidence": 0.98,
           "categories": [
             "fan_love"
           ],
           "reasons": [
-            "Tagalog message praising the song Glasshouse and thanking the artist: 'So beautiful, thank you for your music.'"
+            "Tagalog message praising the track Glasshouse and thanking the artist for the music."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 4386,
-        "inputTokens": 4447,
-        "outputTokens": 210,
-        "costUsd": 0.0061871
+        "latencyMs": 4579,
+        "inputTokens": 4433,
+        "outputTokens": 195,
+        "costUsd": 0.0050333999999999995
       },
-      "recordedAt": "2026-10-11T04:08:16.546Z"
+      "recordedAt": "2026-10-11T04:18:43.790Z"
     },
     "1d632e8c98775de64054d497": {
       "input": {
@@ -179,12 +179,12 @@
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 4891,
-        "inputTokens": 4456,
-        "outputTokens": 204,
-        "costUsd": 0.0086243
+        "latencyMs": 5323,
+        "inputTokens": 4454,
+        "outputTokens": 206,
+        "costUsd": 0.0051394000000000006
       },
-      "recordedAt": "2026-10-11T04:08:12.094Z"
+      "recordedAt": "2026-10-11T04:18:39.208Z"
     },
     "2811d6f50abfa3c561c4492c": {
       "input": {
@@ -200,17 +200,17 @@
             "spoiler"
           ],
           "reasons": [
-            "Reveals the closing song, an acoustic encore, and a piano guest, which breaks the no-setlist-spoilers rule."
+            "Reveals the closing song, that it's acoustic, and a piano guest, which breaks the no-setlist-spoilers rule (encore and guests)."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 4846,
-        "inputTokens": 4449,
-        "outputTokens": 209,
-        "costUsd": 0.006315800000000002
+        "latencyMs": 5401,
+        "inputTokens": 4456,
+        "outputTokens": 216,
+        "costUsd": 0.005150200000000001
       },
-      "recordedAt": "2026-10-11T04:08:47.629Z"
+      "recordedAt": "2026-10-11T04:19:15.663Z"
     },
     "29db5264788afb4d96703859": {
       "input": {
@@ -226,18 +226,18 @@
             "prompt_injection"
           ],
           "reasons": [
-            "Message tells the system to mark it as approved, claiming it was already reviewed (an attempt to instruct the screener).",
-            "Contains nothing about the music or the night."
+            "Message tries to instruct the system to mark it approved, claiming it was already reviewed.",
+            "No content about the music or the night."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 5974,
-        "inputTokens": 4477,
-        "outputTokens": 223,
-        "costUsd": 0.006702400000000001
+        "latencyMs": 5917,
+        "inputTokens": 4464,
+        "outputTokens": 210,
+        "costUsd": 0.005158600000000001
       },
-      "recordedAt": "2026-10-11T04:08:53.605Z"
+      "recordedAt": "2026-10-11T04:19:21.582Z"
     },
     "2cda09214141af68a0c2dbaa": {
       "input": {
@@ -248,23 +248,23 @@
       "call": {
         "toolArgs": {
           "decision": "reject",
-          "confidence": 0.93,
+          "confidence": 0.9,
           "categories": [
             "harassment"
           ],
           "reasons": [
-            "French: says the girl in the front row dances 'like a cow' and it's shameful; insulting another fan's body/dancing.",
-            "Violates rule 3 and targets an identifiable person in the room."
+            "Mocks a fan in the front row for how she dances, calling her a cow (insulting comment on her body/movement).",
+            "Breaks house rule 3 and would shame a real person on the big screen."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 5194,
-        "inputTokens": 4457,
-        "outputTokens": 229,
-        "costUsd": 0.0067085
+        "latencyMs": 5157,
+        "inputTokens": 4456,
+        "outputTokens": 228,
+        "costUsd": 0.0054322
       },
-      "recordedAt": "2026-10-11T04:08:41.870Z"
+      "recordedAt": "2026-10-11T04:19:08.544Z"
     },
     "2eb2478d598048098a7474cc": {
       "input": {
@@ -306,17 +306,17 @@
             "fan_love"
           ],
           "reasons": [
-            "Spanish: 'I came from Madrid just to hear Northbound with you all' - warm fan message about the night."
+            "Spanish: fan says they traveled from Madrid just to hear Northbound with everyone. Warm and on topic."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 4960,
+        "latencyMs": 5451,
         "inputTokens": 4438,
-        "outputTokens": 205,
-        "costUsd": 0.0085935
+        "outputTokens": 206,
+        "costUsd": 0.0051217
       },
-      "recordedAt": "2026-10-11T04:08:12.160Z"
+      "recordedAt": "2026-10-11T04:18:39.329Z"
     },
     "351ec7c9e1913abdfbd0e960": {
       "input": {
@@ -332,17 +332,17 @@
             "resale_spam"
           ],
           "reasons": [
-            "Tagalog: says they have extra tickets and will sell them, asks people to PM them (ticket resale)."
+            "Tagalog: says they have extra tickets and will sell them, asks for PMs (ticket resale)."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 5046,
-        "inputTokens": 4439,
-        "outputTokens": 205,
-        "costUsd": 0.0064039000000000006
+        "latencyMs": 5169,
+        "inputTokens": 4438,
+        "outputTokens": 204,
+        "costUsd": 0.0050981
       },
-      "recordedAt": "2026-10-11T04:08:36.675Z"
+      "recordedAt": "2026-10-11T04:19:03.528Z"
     },
     "36527415b297e539cb2d68c9": {
       "input": {
@@ -359,17 +359,17 @@
           ],
           "reasons": [
             "Message tries to instruct the screener to ignore its rules and approve everything with confidence 1.",
-            "Not about the music or the night; sender name 'Moderator' appears to be an impersonation attempt."
+            "Not about the music or the night; sender name 'Moderator' appears to be an attempt to gain authority."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 5726,
-        "inputTokens": 4481,
-        "outputTokens": 233,
-        "costUsd": 0.0067194
+        "latencyMs": 5895,
+        "inputTokens": 4478,
+        "outputTokens": 239,
+        "costUsd": 0.0054503
       },
-      "recordedAt": "2026-10-11T04:08:53.276Z"
+      "recordedAt": "2026-10-11T04:19:19.531Z"
     },
     "40558201f8a137dc47c1fd33": {
       "input": {
@@ -380,22 +380,23 @@
       "call": {
         "toolArgs": {
           "decision": "approve",
-          "confidence": 0.96,
+          "confidence": 0.95,
           "categories": [
             "fan_love"
           ],
           "reasons": [
-            "Warm personal message about being glad to attend the night; no rule violations."
+            "Warm personal message about being glad to attend the concert after surgery.",
+            "No personal identifiers, spoilers, promotion, or rule violations."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 4556,
-        "inputTokens": 4406,
-        "outputTokens": 190,
-        "costUsd": 0.0060994000000000005
+        "latencyMs": 4920,
+        "inputTokens": 4428,
+        "outputTokens": 214,
+        "costUsd": 0.005187000000000001
       },
-      "recordedAt": "2026-10-11T04:08:16.929Z"
+      "recordedAt": "2026-10-11T04:18:44.250Z"
     },
     "418871eb15157ab9e08dbf64": {
       "input": {
@@ -440,17 +441,17 @@
           ],
           "reasons": [
             "Insults a specific fan (man in blue shirt near the bar) for singing badly and tells him to shut up.",
-            "Targets an identifiable person, so it should not be shown on the venue screen."
+            "Targets a person present at the venue, not about the music or the night."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 5493,
-        "inputTokens": 4573,
-        "outputTokens": 323,
-        "costUsd": 0.0080759
+        "latencyMs": 6135,
+        "inputTokens": 4666,
+        "outputTokens": 421,
+        "costUsd": 0.008092899999999998
       },
-      "recordedAt": "2026-10-11T04:08:42.686Z"
+      "recordedAt": "2026-10-11T04:19:09.664Z"
     },
     "48630ab92b95dda6827d6c21": {
       "input": {
@@ -471,12 +472,12 @@
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 4773,
+        "latencyMs": 4906,
         "inputTokens": 4446,
         "outputTokens": 204,
-        "costUsd": 0.006408
+        "costUsd": 0.005235
       },
-      "recordedAt": "2026-10-11T04:08:33.063Z"
+      "recordedAt": "2026-10-11T04:19:00.308Z"
     },
     "4c2f1de4b3e370abf88ad2c4": {
       "input": {
@@ -487,22 +488,22 @@
       "call": {
         "toolArgs": {
           "decision": "approve",
-          "confidence": 0.98,
+          "confidence": 0.97,
           "categories": [
             "fan_love"
           ],
           "reasons": [
-            "Warm Portuguese message thanking the artist for a lovely night in Lisbon."
+            "Warm Portuguese message: 'What a beautiful night, thanks for doing this in Lisbon.'"
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 4695,
-        "inputTokens": 4432,
-        "outputTokens": 197,
-        "costUsd": 0.006325299999999999
+        "latencyMs": 5118,
+        "inputTokens": 4438,
+        "outputTokens": 204,
+        "costUsd": 0.0051118
       },
-      "recordedAt": "2026-10-11T04:08:22.082Z"
+      "recordedAt": "2026-10-11T04:18:49.497Z"
     },
     "4e1b7995cadd6dde01f64282": {
       "input": {
@@ -518,18 +519,18 @@
             "spoiler"
           ],
           "reasons": [
-            "Reveals the encore song and arrangement (Paper Moons, piano version), which breaks the no-setlist-spoilers rule.",
-            "Written in French; the fan calls it a 'petit spoiler', so it's an intentional reveal and a person should check."
+            "Reveals the encore song and version (Paper Moons, piano), which breaks the no-setlist-spoilers rule.",
+            "Written in French; the message is otherwise friendly, so a person should confirm."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 5094,
-        "inputTokens": 4487,
-        "outputTokens": 251,
-        "costUsd": 0.007015099999999999
+        "latencyMs": 5232,
+        "inputTokens": 4470,
+        "outputTokens": 232,
+        "costUsd": 0.0054739
       },
-      "recordedAt": "2026-10-11T04:08:50.656Z"
+      "recordedAt": "2026-10-11T04:19:17.993Z"
     },
     "4e4659e66f22d1d03e56e37e": {
       "input": {
@@ -540,23 +541,23 @@
       "call": {
         "toolArgs": {
           "decision": "reject",
-          "confidence": 0.8,
+          "confidence": 0.85,
           "categories": [
             "hate"
           ],
           "reasons": [
-            "Targets tourists from a certain country as a group, saying they ruin shows and shouldn't be allowed in.",
-            "Exclusionary statement based on national origin, not about the music or the night."
+            "Targets tourists from a particular nationality as a group, saying they ruin shows and should be barred.",
+            "Exclusionary, demeaning statement about a group; not about the music or the night."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 5470,
-        "inputTokens": 4453,
-        "outputTokens": 225,
-        "costUsd": 0.0065945
+        "latencyMs": 5835,
+        "inputTokens": 4452,
+        "outputTokens": 224,
+        "costUsd": 0.0053717
       },
-      "recordedAt": "2026-10-11T04:08:42.783Z"
+      "recordedAt": "2026-10-11T04:19:10.261Z"
     },
     "53b3706a4fd4251f840c8a3d": {
       "input": {
@@ -572,17 +573,17 @@
             "fan_love"
           ],
           "reasons": [
-            "Warm message about keeping a ticket stub as a memento of the night; no resale, personal info, or spoilers."
+            "Warm message about keeping a ticket stub as a memento of the night; no resale or personal info."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 4949,
-        "inputTokens": 4424,
-        "outputTokens": 204,
-        "costUsd": 0.006353299999999999
+        "latencyMs": 4896,
+        "inputTokens": 4418,
+        "outputTokens": 198,
+        "costUsd": 0.0048967
       },
-      "recordedAt": "2026-10-11T04:08:22.016Z"
+      "recordedAt": "2026-10-11T04:18:49.148Z"
     },
     "5af94324184e736fec29efa1": {
       "input": {
@@ -624,17 +625,18 @@
             "fan_love"
           ],
           "reasons": [
-            "Vietnamese fan praising the track Afterlight: 'so good, I've listened a hundred times'."
+            "Vietnamese fan says Afterlight is so good and they've listened a hundred times.",
+            "Positive, on-topic, no personal info or rule violations."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 5282,
-        "inputTokens": 4440,
-        "outputTokens": 202,
-        "costUsd": 0.0063130999999999994
+        "latencyMs": 5006,
+        "inputTokens": 4455,
+        "outputTokens": 217,
+        "costUsd": 0.0052518999999999995
       },
-      "recordedAt": "2026-10-11T04:08:17.379Z"
+      "recordedAt": "2026-10-11T04:18:44.205Z"
     },
     "68900a2fb3a0205368dfd59c": {
       "input": {
@@ -650,17 +652,17 @@
             "fan_love"
           ],
           "reasons": [
-            "Music idiom expressing love for the chorus of Static Hearts; no harm, spoilers, or personal info."
+            "Music idiom praising the chorus of a track; warm fan message about the music."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 4945,
-        "inputTokens": 4408,
-        "outputTokens": 206,
-        "costUsd": 0.0061912
+        "latencyMs": 4821,
+        "inputTokens": 4394,
+        "outputTokens": 192,
+        "costUsd": 0.0048056999999999996
       },
-      "recordedAt": "2026-10-11T04:08:26.836Z"
+      "recordedAt": "2026-10-11T04:18:53.757Z"
     },
     "768a3cbcfcf59360a5db7245": {
       "input": {
@@ -700,21 +702,22 @@
           "decision": "review",
           "confidence": 0.9,
           "categories": [
-            "personal_info"
+            "personal_info",
+            "off_topic"
           ],
           "reasons": [
-            "Phone number spelled out in words (415-555-0134), which bypassed the automatic removal.",
-            "Not about the music or the night; a person should decide."
+            "Phone number spelled out in words (415-555-0134), which evades the automatic removal.",
+            "Not about the music or the night; asks people to text her."
           ],
           "personal_info_left": true
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 6120,
-        "inputTokens": 4438,
-        "outputTokens": 314,
-        "costUsd": 0.007438200000000001
+        "latencyMs": 5903,
+        "inputTokens": 4441,
+        "outputTokens": 323,
+        "costUsd": 0.0060919
       },
-      "recordedAt": "2026-10-11T04:08:55.883Z"
+      "recordedAt": "2026-10-11T04:19:22.633Z"
     },
     "793bd3847c5a2c312ee33890": {
       "input": {
@@ -730,18 +733,17 @@
             "fan_love"
           ],
           "reasons": [
-            "French: 'Static Hearts is our wedding song' - warm, about the music.",
-            "No personal info, spoilers, or promotion."
+            "French message saying 'Static Hearts' is their wedding song: warm and about the music."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 4928,
-        "inputTokens": 4436,
-        "outputTokens": 211,
-        "costUsd": 0.006518899999999999
+        "latencyMs": 5169,
+        "inputTokens": 4421,
+        "outputTokens": 195,
+        "costUsd": 0.0049626
       },
-      "recordedAt": "2026-10-11T04:08:17.066Z"
+      "recordedAt": "2026-10-11T04:18:44.378Z"
     },
     "7ae7a6af2c1515a1f8a95c64": {
       "input": {
@@ -752,22 +754,23 @@
       "call": {
         "toolArgs": {
           "decision": "approve",
-          "confidence": 0.97,
+          "confidence": 0.98,
           "categories": [
             "fan_love"
           ],
           "reasons": [
-            "Portuguese message saying the song reminds them of holidays with their grandmother; warm and about the music."
+            "Warm Portuguese message: the song reminds the fan of holidays with their grandmother.",
+            "About the music, with no rule violations."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 4936,
-        "inputTokens": 4436,
-        "outputTokens": 200,
-        "costUsd": 0.0085733
+        "latencyMs": 5315,
+        "inputTokens": 4446,
+        "outputTokens": 210,
+        "costUsd": 0.0051988
       },
-      "recordedAt": "2026-10-11T04:08:12.137Z"
+      "recordedAt": "2026-10-11T04:18:39.196Z"
     },
     "858cecd220feb705f8d4e867": {
       "input": {
@@ -784,17 +787,17 @@
           ],
           "reasons": [
             "Targets a specific fan in row 4, telling them to be quiet and mocking their singing.",
-            "Would embarrass someone in front of the room; not about the music."
+            "Would single out and embarrass a person on the big screen."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 4899,
-        "inputTokens": 4459,
-        "outputTokens": 217,
-        "costUsd": 0.006535
+        "latencyMs": 5089,
+        "inputTokens": 4457,
+        "outputTokens": 215,
+        "costUsd": 0.0052265
       },
-      "recordedAt": "2026-10-11T04:08:37.311Z"
+      "recordedAt": "2026-10-11T04:19:04.422Z"
     },
     "898ca97d075a84b1ddb5ad47": {
       "input": {
@@ -856,25 +859,24 @@
       },
       "call": {
         "toolArgs": {
-          "decision": "review",
-          "confidence": 0.6,
+          "decision": "approve",
+          "confidence": 0.92,
           "categories": [
-            "fan_love",
-            "spoiler"
+            "fan_love"
           ],
           "reasons": [
-            "Warm fan praise for the drums; 'killer' and 'sick' are music idioms.",
-            "Calling Northbound the 'opener' might reveal song order, which rule 4 forbids. It's unclear if this means the album or tonight's set."
+            "Enthusiastic praise for the track Northbound and its drums; 'killer' and 'sick' are music slang.",
+            "Calling it the opener refers to the album's track order at an album listening party, not a hidden setlist reveal."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 6205,
-        "inputTokens": 4647,
-        "outputTokens": 431,
-        "costUsd": 0.009369099999999998
+        "latencyMs": 6165,
+        "inputTokens": 4651,
+        "outputTokens": 437,
+        "costUsd": 0.008228300000000001
       },
-      "recordedAt": "2026-10-11T04:08:28.289Z"
+      "recordedAt": "2026-10-11T04:18:55.401Z"
     },
     "a6c2028a321018cda949396c": {
       "input": {
@@ -885,23 +887,23 @@
       "call": {
         "toolArgs": {
           "decision": "approve",
-          "confidence": 0.97,
+          "confidence": 0.98,
           "categories": [
             "fan_love"
           ],
           "reasons": [
-            "Spanish idiom 'Me muero con el coro' means 'I'm dying over the chorus', praise for the song.",
-            "About the music, with no spoilers, personal info or promotion."
+            "Spanish idiom 'I'm dying over the chorus of Paper Moons' is enthusiastic praise of the music.",
+            "No personal info, spoilers, promotion or targeting of anyone."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 5220,
-        "inputTokens": 4441,
-        "outputTokens": 227,
-        "costUsd": 0.006684800000000001
+        "latencyMs": 5164,
+        "inputTokens": 4444,
+        "outputTokens": 232,
+        "costUsd": 0.005578400000000001
       },
-      "recordedAt": "2026-10-11T04:08:27.666Z"
+      "recordedAt": "2026-10-11T04:18:54.664Z"
     },
     "a9fa08eb788406e9543735eb": {
       "input": {
@@ -912,24 +914,24 @@
       "call": {
         "toolArgs": {
           "decision": "reject",
-          "confidence": 0.85,
+          "confidence": 0.86,
           "categories": [
             "sexual",
             "off_topic"
           ],
           "reasons": [
-            "Portuguese: invites any woman who is alone to spend the night with him at his hotel, which is a sexual solicitation aimed at other fans.",
+            "Invites women who are alone to spend the night with him at a hotel, which is a sexual solicitation aimed at other fans.",
             "Nothing about the music or the night."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 7075,
-        "inputTokens": 4778,
-        "outputTokens": 536,
-        "costUsd": 0.01111
+        "latencyMs": 7064,
+        "inputTokens": 4572,
+        "outputTokens": 333,
+        "costUsd": 0.0069056
       },
-      "recordedAt": "2026-10-11T04:08:49.762Z"
+      "recordedAt": "2026-10-11T04:19:16.730Z"
     },
     "aa44e5b413ecd0c255f6cce7": {
       "input": {
@@ -945,18 +947,18 @@
             "harassment"
           ],
           "reasons": [
-            "Insults a fan in the front row (red hat) as ugly, a comment on another fan's looks.",
-            "Targets an identifiable person in the room and breaks house rule 3."
+            "Mocks a specific fan in the front row (red hat) as ugly, violating the rule against comments on other fans' looks.",
+            "Targets an identifiable person and would hurt them if shown on screen."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 5979,
-        "inputTokens": 4484,
-        "outputTokens": 316,
-        "costUsd": 0.0076403999999999994
+        "latencyMs": 6142,
+        "inputTokens": 4490,
+        "outputTokens": 325,
+        "costUsd": 0.0064842
       },
-      "recordedAt": "2026-10-11T04:08:39.043Z"
+      "recordedAt": "2026-10-11T04:19:06.451Z"
     },
     "b1c71ee990e7302f27198c65": {
       "input": {
@@ -977,12 +979,12 @@
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 5505,
+        "latencyMs": 5028,
         "inputTokens": 4430,
-        "outputTokens": 204,
-        "costUsd": 0.0063535
+        "outputTokens": 205,
+        "costUsd": 0.005087
       },
-      "recordedAt": "2026-10-11T04:08:22.443Z"
+      "recordedAt": "2026-10-11T04:18:49.234Z"
     },
     "b930b882c33fb39609280df2": {
       "input": {
@@ -993,24 +995,24 @@
       "call": {
         "toolArgs": {
           "decision": "reject",
-          "confidence": 0.88,
+          "confidence": 0.85,
           "categories": [
             "sexual",
             "harassment"
           ],
           "reasons": [
-            "Sexual proposition ('private night') aimed at a specific person, the bartender.",
-            "Comments on the bartender's looks and isn't about the music or the night."
+            "Sexual proposition directed at a specific person (the bartender), commenting on their looks.",
+            "Off-topic and not about the music or the night."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 5677,
-        "inputTokens": 4551,
-        "outputTokens": 329,
-        "costUsd": 0.0080377
+        "latencyMs": 5090,
+        "inputTokens": 4438,
+        "outputTokens": 216,
+        "costUsd": 0.0053172
       },
-      "recordedAt": "2026-10-11T04:08:47.549Z"
+      "recordedAt": "2026-10-11T04:19:13.635Z"
     },
     "bb607ca8cd4888c6970d1649": {
       "input": {
@@ -1027,18 +1029,18 @@
             "off_topic"
           ],
           "reasons": [
-            "Full name plus school and graduation year identifies a person, and the message says where she is sitting (blue car outside).",
-            "Invites people to come find her; it has nothing to do with the music, and it could be a safety risk for a student."
+            "Gives full name, school and class year, plus a physical location (blue car outside), which identifies and locates a person, apparently a student.",
+            "Invites people to come meet her; not about the music."
           ],
           "personal_info_left": true
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 6241,
-        "inputTokens": 4502,
-        "outputTokens": 366,
-        "costUsd": 0.0081577
+        "latencyMs": 5962,
+        "inputTokens": 4488,
+        "outputTokens": 358,
+        "costUsd": 0.0066279
       },
-      "recordedAt": "2026-10-11T04:08:56.898Z"
+      "recordedAt": "2026-10-11T04:19:23.956Z"
     },
     "c02fe960cb3c542b72c1591a": {
       "input": {
@@ -1080,17 +1082,17 @@
             "fan_love"
           ],
           "reasons": [
-            "Warm fan praise; 'kills me' is a music idiom about the album."
+            "Warm fan message about the album; 'kills me' is a music idiom."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 4902,
-        "inputTokens": 4390,
-        "outputTokens": 192,
-        "costUsd": 0.0060797
+        "latencyMs": 4212,
+        "inputTokens": 4393,
+        "outputTokens": 191,
+        "costUsd": 0.0048608
       },
-      "recordedAt": "2026-10-11T04:08:26.920Z"
+      "recordedAt": "2026-10-11T04:18:53.362Z"
     },
     "c9a3f0e3a8c2629e07d06fca": {
       "input": {
@@ -1111,12 +1113,12 @@
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 5185,
+        "latencyMs": 5343,
         "inputTokens": 4420,
-        "outputTokens": 196,
-        "costUsd": 0.008326700000000001
+        "outputTokens": 194,
+        "costUsd": 0.0048396
       },
-      "recordedAt": "2026-10-11T04:08:12.372Z"
+      "recordedAt": "2026-10-11T04:18:39.207Z"
     },
     "ce5424facdb63db14bf2363a": {
       "input": {
@@ -1132,17 +1134,17 @@
             "resale_spam"
           ],
           "reasons": [
-            "Promotes discounted merch (50% off) on the sender's own site with a link, which is promotion/selling against house rule 2."
+            "Promotes discounted merch on the sender's own site (50% off, link in bio), which is promotion/sales and breaks house rule 2."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 5664,
-        "inputTokens": 4438,
-        "outputTokens": 210,
-        "costUsd": 0.0065088
+        "latencyMs": 5247,
+        "inputTokens": 4444,
+        "outputTokens": 212,
+        "costUsd": 0.005352300000000001
       },
-      "recordedAt": "2026-10-11T04:08:37.192Z"
+      "recordedAt": "2026-10-11T04:19:03.386Z"
     },
     "e5e01f88df8521a49f1b6b5d": {
       "input": {
@@ -1158,17 +1160,17 @@
             "fan_love"
           ],
           "reasons": [
-            "Fan praising the track Glasshouse; on topic and harmless."
+            "Genuine praise for the song Glasshouse, about the music."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 4709,
+        "latencyMs": 4600,
         "inputTokens": 4412,
-        "outputTokens": 192,
-        "costUsd": 0.006031600000000001
+        "outputTokens": 190,
+        "costUsd": 0.0047753
       },
-      "recordedAt": "2026-10-11T04:08:31.629Z"
+      "recordedAt": "2026-10-11T04:18:58.358Z"
     },
     "e7e129b8c591207420f2e599": {
       "input": {
@@ -1185,18 +1187,18 @@
             "harassment"
           ],
           "reasons": [
-            "Says the music isn't for people from a certain neighborhood and that they should stay outside, which excludes a group.",
-            "The neighborhood may stand in for class or ethnicity, so a person should decide instead of auto-rejecting."
+            "Says the music is not for people from a certain neighborhood and that they should stay outside, which is exclusionary toward a group.",
+            "A neighborhood may be a stand-in for class or ethnicity, so a person should decide instead of auto-hiding it."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 6517,
-        "inputTokens": 4651,
-        "outputTokens": 411,
-        "costUsd": 0.0093391
+        "latencyMs": 6307,
+        "inputTokens": 4640,
+        "outputTokens": 398,
+        "costUsd": 0.007850300000000001
       },
-      "recordedAt": "2026-10-11T04:08:45.561Z"
+      "recordedAt": "2026-10-11T04:19:12.760Z"
     },
     "fcff26123d7a7d68a68b3e9f": {
       "input": {
@@ -1207,22 +1209,22 @@
       "call": {
         "toolArgs": {
           "decision": "approve",
-          "confidence": 0.98,
+          "confidence": 0.97,
           "categories": [
             "fan_love"
           ],
           "reasons": [
-            "Vietnamese: says Saltwater Hymn makes them utterly smitten; warm fan praise about the music."
+            "Vietnamese: says Saltwater Hymn makes them utterly smitten; warm fan love about the music."
           ],
           "personal_info_left": false
         },
         "model": "claude-sonnet-5-5",
-        "latencyMs": 4690,
-        "inputTokens": 4443,
-        "outputTokens": 205,
-        "costUsd": 0.0064665
+        "latencyMs": 4774,
+        "inputTokens": 4438,
+        "outputTokens": 204,
+        "costUsd": 0.0048430999999999995
       },
-      "recordedAt": "2026-10-11T04:08:31.527Z"
+      "recordedAt": "2026-10-11T04:18:58.137Z"
     }
   }
 }
