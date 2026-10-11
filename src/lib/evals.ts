@@ -70,6 +70,7 @@ export async function runEval(cases: EvalCase[], opts: EvalOptions): Promise<Eva
   let done = 0;
   let model: string | null = null;
   let cost = 0;
+  opts.onProgress?.(0, cases.length);
   const results = await mapLimit(cases, opts.concurrency ?? 4, async (c): Promise<EvalCaseResult> => {
     const req = caseRequest(c);
     const outcome = await opts.screen(req);
