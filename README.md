@@ -102,6 +102,7 @@ Pages: `/live` (phone and venue screen side by side), `/screen`, `/join`, `/m/<t
 | `ANTHROPIC_API_KEY` | unset | Use an API key instead of the local Claude Code login |
 | `DATA_DIR` | `./data` | Where the SQLite file lives |
 | `RATE_LIMIT_MAX` | `3` | Messages per device per 5 minutes |
+| `TRUST_PROXY` | unset | `1` keys the rate limit on `X-Forwarded-For` or `X-Real-IP`; set it only behind a proxy that overwrites those headers |
 | `SCREEN_CONCURRENCY` | `2` | Screening calls at once |
 | `REPLAY_DELAY_MS` | `700` | Pause in replay mode so the Screening state is visible |
 | `ALLOW_RESET` | unset | `0` turns off the local reset endpoint |
@@ -110,6 +111,7 @@ Pages: `/live` (phone and venue screen side by side), `/screen`, `/join`, `/m/<t
 
 ```bash
 npm test                          # unit and API tests, replay mode, no network
+npx playwright install chromium   # once (or PW_CHANNEL=chrome to use installed Chrome)
 npm run build && npm run test:e2e # Playwright against the production build, replay mode
 LIVE=1 npm run test:live          # opt-in: two real Agent SDK calls
 npm run lint && npm run typecheck
@@ -120,7 +122,7 @@ npm run lint && npm run typecheck
 - The privacy test reads the SQLite and WAL bytes after real submissions and after a delete.
 - API tests cover validation messages, the honeypot, the rate limit and a full submit, screen and delete through the route handlers.
 - Fixture and eval tests check that every seed and demo message has a recording and that replaying the recorded eval run gives the committed numbers.
-- The end-to-end test walks three paths: submit then live, held then approved from the keyboard, and delete then gone from every screen.
+- The end-to-end test walks four paths: submit then live, held then approved from the keyboard, delete then gone from every screen, and a freshly typed text in replay mode that falls back to the labelled keyword rules.
 
 CI (`.github/workflows/ci.yml`) runs lint, typecheck, unit tests, a production build and the Playwright tests on every push, in replay mode.
 
@@ -129,4 +131,6 @@ CI (`.github/workflows/ci.yml`) runs lint, typecheck, unit tests, a production b
 - All data is synthetic: the artist, album, show, tracks, fan names and messages are invented, phone numbers use ranges reserved for fiction and emails use example.com. Every screen carries a "Synthetic demo data" badge and every row has `synthetic = 1`.
 - The producer console has no sign-in in this demo; a production version would put it behind single sign-on with roles and keep the audit log append-only.
 - Replay mode answers only the recorded texts; anything new falls back to the labelled keyword rules.
+- Demo takes are recorded in replay mode so every take shows the same verdicts. Live verdicts move a little between runs; a message near the bar can land on either side of it.
+- Without `TRUST_PROXY=1` the app ignores proxy headers, so a client cannot reset its limit by sending a new `X-Forwarded-For`. All devices then share one limit key, which suits a single-machine demo; behind a real proxy, turn it on.
 - A production version would also add a durable queue in front of screening, per-show tenancy, a moderation SLA timer on held messages, and image or voice messages with the same scrub-first pipeline.
