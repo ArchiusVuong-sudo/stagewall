@@ -9,6 +9,7 @@ node_modules/
 
 # local data
 data/
+data-e2e/
 *.db
 *.db-*
 *.sqlite*
