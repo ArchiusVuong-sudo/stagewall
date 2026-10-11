@@ -407,7 +407,7 @@ function SettingsPanel({
         {threshold !== saved && (
           <div className="mt-2 flex gap-2">
             <button type="button" onClick={saveThreshold} className="rounded-md bg-zinc-900 px-3 py-1.5 text-[12px] font-semibold text-white">
-              Save for new messages
+              Save
             </button>
             <button type="button" onClick={() => setThreshold(saved)} className="rounded-md px-3 py-1.5 text-[12px] text-zinc-600 hover:bg-zinc-100">
               Back to {saved.toFixed(2)}

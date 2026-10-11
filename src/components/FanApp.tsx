@@ -54,6 +54,10 @@ export function FanApp({ framed = false }: { framed?: boolean }) {
     setView("mine");
   }, []);
 
+  const onForget = useCallback((token: string) => {
+    saveMine(loadMine().filter((m) => m.token !== token));
+  }, []);
+
   const onGone = useCallback((token: string) => {
     setMine((prev) => {
       const next = (prev ?? []).filter((m) => m.token !== token);
@@ -96,7 +100,7 @@ export function FanApp({ framed = false }: { framed?: boolean }) {
           <div className="space-y-3" data-testid="my-messages">
             <AnimatePresence initial={false}>
               {mine.map((m) => (
-                <StatusCard key={m.token} mine={m} onGone={onGone} />
+                <StatusCard key={m.token} mine={m} onGone={onGone} onForget={onForget} />
               ))}
             </AnimatePresence>
             {mine.length === 0 && <p className="py-8 text-center text-sm text-white/50">Nothing here yet.</p>}
@@ -280,7 +284,16 @@ const REMOVED_LABEL: Record<string, string> = {
   address: "address",
 };
 
-export function StatusCard({ mine, onGone }: { mine: Mine; onGone: (token: string) => void }) {
+export function StatusCard({
+  mine,
+  onGone,
+  onForget,
+}: {
+  mine: Mine;
+  onGone: (token: string) => void;
+  /** Drop the link from this phone's storage while the card stays on screen. */
+  onForget?: (token: string) => void;
+}) {
   const [view, setView] = useState<FanView | null>(null);
   const [status, setStatus] = useState<MessageStatus | "deleted" | null>(null);
   const [busy, setBusy] = useState(false);
@@ -289,15 +302,16 @@ export function StatusCard({ mine, onGone }: { mine: Mine; onGone: (token: strin
 
   const refresh = useCallback(async () => {
     const res = await fetch(`/api/manage/${mine.token}`, { cache: "no-store" });
-    if (res.status === 404) {
+    if (!res.ok) return;
+    const data = (await res.json()) as { message: FanView | null };
+    if (!data.message) {
       setMissing(true);
+      onForget?.(mine.token);
       return;
     }
-    if (!res.ok) return;
-    const data = (await res.json()) as { message: FanView };
     setView(data.message);
     setStatus(data.message.status);
-  }, [mine.token]);
+  }, [mine.token, onForget]);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -307,7 +321,8 @@ export function StatusCard({ mine, onGone }: { mine: Mine; onGone: (token: strin
   useLive((e) => {
     if (e.type === "status" && e.id === mine.id) {
       setStatus(e.status);
-      if (e.status !== "deleted") void refresh();
+      if (e.status === "deleted") onForget?.(mine.token);
+      else void refresh();
     }
   });
 
@@ -315,7 +330,10 @@ export function StatusCard({ mine, onGone }: { mine: Mine; onGone: (token: strin
     setBusy(true);
     const res = await fetch(`/api/manage/${mine.token}`, { method: "DELETE" });
     setBusy(false);
-    if (res.ok || res.status === 404) setStatus("deleted");
+    if (res.ok || res.status === 404) {
+      setStatus("deleted");
+      onForget?.(mine.token);
+    }
   }
 
   if (missing) {

@@ -16,7 +16,8 @@ export function ManageView({ token }: { token: string }) {
       .then(async (res) => {
         if (!alive) return;
         if (!res.ok) return setState("missing");
-        const data = (await res.json()) as { message: { id: string } };
+        const data = (await res.json()) as { message: { id: string } | null };
+        if (!data.message) return setState("missing");
         setId(data.message.id);
         setState("found");
       })

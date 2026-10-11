@@ -7,7 +7,7 @@ import type { PublicMessage } from "@/lib/types";
 import { ScrubbedText } from "./Badges";
 import { useLive, useLiveConnected } from "./LiveProvider";
 
-const VISIBLE = 7;
+const VISIBLE = 10;
 
 /** The big screen at the venue. Live messages only, pushed over SSE. */
 export function VenueScreen({ initial, qrSvg, joinUrl }: { initial: PublicMessage[]; qrSvg: string; joinUrl: string }) {
@@ -49,7 +49,7 @@ export function VenueScreen({ initial, qrSvg, joinUrl }: { initial: PublicMessag
 
         <div className="mt-[2cqw] grid min-h-0 flex-1 grid-cols-[1fr_17cqw] gap-[1.6cqw]">
           <div className="flex min-h-0 flex-col gap-[1.2cqw]">
-            <div className="min-h-[13cqw]">
+            <div>
               <AnimatePresence mode="popLayout" initial={false}>
                 {spot ? (
                   <motion.article
@@ -79,7 +79,7 @@ export function VenueScreen({ initial, qrSvg, joinUrl }: { initial: PublicMessag
                 )}
               </AnimatePresence>
             </div>
-            <div className="grid min-h-0 flex-1 grid-cols-3 content-start gap-[1cqw]">
+            <div className="grid min-h-0 flex-1 grid-cols-3 grid-rows-3 gap-[1cqw]">
               <AnimatePresence mode="popLayout" initial={false}>
                 {grid.map((m) => (
                   <motion.article
@@ -93,7 +93,7 @@ export function VenueScreen({ initial, qrSvg, joinUrl }: { initial: PublicMessag
                     className="relative overflow-hidden rounded-[1cqw] bg-white/[0.045] p-[1.1cqw] ring-1 ring-white/[0.08]"
                   >
                     <div className="absolute inset-x-0 top-0 h-[0.25cqw]" style={{ background: trackColor(m.track), opacity: 0.85 }} />
-                    <p className="line-clamp-3 text-[1.2cqw] leading-snug text-white/90">
+                    <p className="line-clamp-3 text-[1.3cqw] leading-snug text-white/90">
                       <ScrubbedText text={m.body} />
                     </p>
                     <p className="mt-[0.6cqw] truncate text-[0.9cqw] text-white/50">

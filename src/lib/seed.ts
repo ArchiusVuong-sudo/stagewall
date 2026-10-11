@@ -47,6 +47,7 @@ export const SEED_QUEUE: SeedMessage[] = [
   { name: "Lea", track: "Paper Moons", message: "the guy in the yellow raincoat near the bar should not be allowed to sing, painful to look at too", recap: false },
   { name: "Bao", track: "Saltwater Hymn", message: "Saltwater Hymn là lý do mình học tiếng Anh, cảm ơn chị", recap: true },
   { name: "Marisol", track: "Afterlight", message: "Afterlight live? ¡Qué noche! Gracias desde Sevilla", recap: true },
+  { name: "Nell", track: "Afterlight", message: "Shoutout to whoever dropped a phone near the bar, it is at the coat check", recap: false },
 ];
 
 export function seedDb(db: DB, now = new Date()): { live: number; queued: string[] } {

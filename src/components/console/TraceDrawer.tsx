@@ -76,7 +76,7 @@ export function TraceDrawer({ id, onClose }: { id: string; onClose: () => void }
             </Section>
 
             <Section title="2. Tool call: record_verdict">
-              <pre className="overflow-x-auto rounded-lg bg-zinc-950 p-3 font-mono text-[11.5px] leading-relaxed text-zinc-100" data-testid="tool-args">
+              <pre className="whitespace-pre-wrap break-words rounded-lg bg-zinc-950 p-3 font-mono text-[11.5px] leading-relaxed text-zinc-100" data-testid="tool-args">
                 {t.toolArgs ? JSON.stringify(t.toolArgs, null, 2) : "(no tool call)"}
               </pre>
               {t.error && <p className="mt-2 rounded-lg bg-rose-50 p-2.5 text-rose-700 ring-1 ring-rose-200">Error: {t.error}</p>}

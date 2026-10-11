@@ -11,9 +11,9 @@ type Params = { params: Promise<{ token: string }> };
 export async function GET(_req: Request, { params }: Params) {
   ready();
   const { token } = await params;
-  if (!isTokenShape(token)) return json({ error: "Not found" }, 404);
-  const view = fanView(appCtx(), token);
-  return view ? json({ message: view }) : json({ error: "Not found" }, 404);
+  // A link with nothing behind it (deleted, purged or never valid) is a normal answer, not an error.
+  if (!isTokenShape(token)) return json({ message: null });
+  return json({ message: fanView(appCtx(), token) });
 }
 
 /** Hard delete by the fan. It leaves every screen at once. */
